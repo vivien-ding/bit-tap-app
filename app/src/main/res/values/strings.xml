@@ -3,5 +3,7 @@
     <string name="add_funds">Add Funds</string>
     <string name="send_funds">Send Funds</string>
     <string name="receive_funds">Receive Funds</string>
+    <string name="send">Send</string>
+    <string name="charge_hint">Amount to Charge</string>
     <string name="message_beaming_complete">Transaction Complete</string>
 </resources>

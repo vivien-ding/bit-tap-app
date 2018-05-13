@@ -11,8 +11,11 @@ import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
+import java.util.*
 
 const val MIME_TEXT_PLAIN = "text/plain"
+var receiveAddress:String? = null
+var receiveAmount:String? = null
 
 class SendActivity : AppCompatActivity() {
     private var tvIncomingMessage: TextView? = null
@@ -54,6 +57,7 @@ class SendActivity : AppCompatActivity() {
         // also reading NFC message from here in case this activity is already started in order
         // not to start another instance of this activity
         receiveMessageFromDevice(intent)
+
     }
 
     override fun onResume() {
@@ -81,6 +85,9 @@ class SendActivity : AppCompatActivity() {
 
                 val inMessage = String(ndefRecord_0.payload)
                 tvIncomingMessage?.text = inMessage
+                val receiveArray = inMessage.split(",")
+                receiveAddress = receiveArray[0]
+                receiveAmount = receiveArray[1]
             }
         }
     }
@@ -130,4 +137,5 @@ class SendActivity : AppCompatActivity() {
     private fun disableForegroundDispatch(activity: AppCompatActivity, adapter: NfcAdapter?) {
         adapter?.disableForegroundDispatch(activity)
     }
+
 }

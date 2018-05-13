@@ -10,6 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 
 import me.viviending.bittap.nfc.OutcomingNfcManager
+import me.viviending.bittap.address
+import me.viviending.bittap.key
 
 class ReceiveActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
@@ -27,9 +29,9 @@ class ReceiveActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_receive)
-//
-//        this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
-//
+
+        this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
+
 //        if (!isNfcSupported) {
 //            Toast.makeText(this, "Nfc is not supported on this device", Toast.LENGTH_SHORT).show()
 //            finish()
@@ -63,7 +65,7 @@ class ReceiveActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
     }
 
     private fun setOutGoingMessage() {
-        val outMessage = this.etOutcomingMessage.text.toString()
+        val outMessage = this.etOutcomingMessage.text.toString() + "," + address
         this.tvOutcomingMessage.text = outMessage
     }
 

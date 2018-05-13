@@ -9,9 +9,8 @@ import android.widget.Button
 import android.support.v4.content.ContextCompat.startActivity
 
 
-
-
-
+var address: String = "mmHYbs6Pef4PD9WkRPkAMGHLrHQm8WPAxG"
+var key: String = "cP8S57g7x7Nh9Y86ZT7emHQvLb7w4vDZM7eyUFXV8XzRviTxbhtD"
 
 class MainActivity : AppCompatActivity() {
 

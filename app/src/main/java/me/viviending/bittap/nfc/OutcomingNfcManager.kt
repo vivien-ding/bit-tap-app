@@ -5,6 +5,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import me.viviending.bittap.MIME_TEXT_PLAIN
+import me.viviending.bittap.address
 
 class OutcomingNfcManager(
         private val nfcActivity: NfcActivity
@@ -22,7 +23,9 @@ class OutcomingNfcManager(
             val outRecord = NdefRecord.createMime(MIME_TEXT_PLAIN, outBytes)
             return NdefMessage(outRecord)
         }
+
     }
+
 
     override fun onNdefPushComplete(event: NfcEvent) {
         // onNdefPushComplete() is called on the Binder thread, so remember to explicitly notify
